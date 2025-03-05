@@ -9,5 +9,6 @@ public class passThePig {
         // players.add(new WimpyBotPlayer("Tbot4"));
 
         System.out.println("1");
+        // test
     }
 }
