@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Pigs {
     String[] pigs = new String[2];
-    String[] points  = new int[2];
+    int[] points  = new int[2];
 
     public static void printPigs() {
 

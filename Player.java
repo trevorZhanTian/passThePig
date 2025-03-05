@@ -7,7 +7,7 @@ public class Player {
     }
 
     public boolean wantsToRoll(int myScore, int handScore, ArrayList<Integer> otherScores, int winningScore) {
-        return boolean wantsToRoll;
+        return wantsToRoll;
     }
 
     public String getName() {
@@ -15,6 +15,6 @@ public class Player {
     }
 
     public String getStrategy() {
-        return strategy
+        return strategy;
     }
 }
