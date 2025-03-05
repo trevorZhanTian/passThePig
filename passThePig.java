@@ -7,5 +7,7 @@ public class passThePig {
         players.add(new SchemerBot("TBot2"));
         players.add(new RiskyBotPlayer("Tbot3"));
         players.add(new WimpyBotPlayer("Tbot4"));
+
+        System.out.println("1");
     }
 }
