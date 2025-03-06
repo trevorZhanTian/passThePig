@@ -12,14 +12,25 @@ public class passThePig {
         players.add(new UltimateTrevorBot("TBot3", 3));
 
         int[] scores = new int[players.size()];
-    
-        for (Player player: players) {
-            int n = 0;
-            ((UltimateTrevorBot)player).updateHand();
-            ((UltimateTrevorBot)player).updateScore();
-            scores[n] = ((UltimateTrevorBot)player).getScore();
-            n++;
-            System.out.println(Player.getScores());
+        
+        while (Player.getHighestScore() < winningScore) {
+            for (Player player: players) {
+                int n = 0;
+                ((UltimateTrevorBot)player).updateHand();
+                ((UltimateTrevorBot)player).updateScore();
+                scores[n] = ((UltimateTrevorBot)player).getScore();
+                n++;
+
+                System.out.println("-----------------------------");
+                System.out.println();
+                System.out.println(Player.getScores());       
+                System.out.println();         
+                System.out.println("-----------------------------");
+                
+
+                System.out.println();
+                System.out.println();
+            }
         }
 
 

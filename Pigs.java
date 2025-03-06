@@ -4,8 +4,8 @@ public class Pigs {
     public static String[] pigs = new String[2];
     public static int[] points  = new int[2];
 
-    public static void printPigs() {
-
+    public static String[] getHandName() {
+        return pigs;
     }
 
     public static int getHand() {
