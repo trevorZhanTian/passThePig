@@ -5,7 +5,7 @@ public class Player {
     private String strategy;
     private boolean wantsToRoll;
     private int index;
-    private static ArrayList<Integer> scores;
+    private static ArrayList<Integer> scores = new ArrayList<>();
 
     public Player(String name, int index) {
         this.name = name;

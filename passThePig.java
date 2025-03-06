@@ -8,8 +8,8 @@ public class passThePig {
 
         players.add(new UltimateTrevorBot("TBot0", 0));
         players.add(new UltimateTrevorBot("TBot1", 1));
-        players.add(new UltimateTrevorBot("Tbot2", 2));
-        players.add(new UltimateTrevorBot("Tbot3", 3));
+        players.add(new UltimateTrevorBot("TBot2", 2));
+        players.add(new UltimateTrevorBot("TBot3", 3));
 
         int[] scores = new int[players.size()];
     

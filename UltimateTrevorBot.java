@@ -10,7 +10,7 @@ public class UltimateTrevorBot extends Player {
     }
 
     public static double map (int value, int min, int max, double min1, double max1) {  //inspired by built-in method "map" in Processing
-        return value + (value - min) / (max - min) * (max1 - min1);
+        return min1 + (value - min) / (max - min) * (max1 - min1);
     }
 
     public boolean wantsToRoll(int myScore, int handScore, ArrayList<Integer> otherScores, int winningScore) {
@@ -20,15 +20,17 @@ public class UltimateTrevorBot extends Player {
         // plus or minus constant the difference to the hightest score and how close the bot and other players are to winning
 
         int leadingCompare = myScore - super.getHighestScore();
-        double leadingCompareOffset = map(leadingCompare, winningScore*-1, winningScore, 0.5, -0.4);    //convert from a scale of (-100, 100) to (0.5, -0.4)
+        double leadingCompareOffset = map(leadingCompare, winningScore*-1, winningScore, 0.4, -0.3);    //convert from a scale of (-100, 100) to (0.5, -0.4)
 
         int leaderWinningDistance = winningScore - super.getHighestScore();
-        double leaderWinningDistanceOffset = map(leaderWinningDistance, 100, 1, 0, 0.5);    //convert from a scale of (100, 1) to (0, 0.5)
+        double leaderWinningDistanceOffset = map(leaderWinningDistance, 100, 1, 0, 0.4);    //convert from a scale of (100, 1) to (0, 0.5)
 
         int myWinningDistance = winningScore - myScore;
-        double myWinningDistanceOffset = map(myWinningDistance, 100, 1, 0.4, -0.3);    //convert from a scale of (100, 1) to (0.4, -0.3)
+        double myWinningDistanceOffset = map(myWinningDistance, 100, 1, 0.3, -0.2);    //convert from a scale of (100, 1) to (0.4, -0.3)
         
         double expectedScoreConstant = 1 + leadingCompareOffset + leaderWinningDistanceOffset + myWinningDistanceOffset;
+
+        // System.out.println(defaultExpectedScore * expectedScoreConstant);
 
         return hand < defaultExpectedScore * expectedScoreConstant;
     }
@@ -39,15 +41,27 @@ public class UltimateTrevorBot extends Player {
     }
 
     public ArrayList<Integer> getOtherScores() {
-        ArrayList<Integer> otherScores = super.getScores();
-        otherScores.remove(index);
+        ArrayList<Integer> scoresCopy = super.getScores();
+        ArrayList<Integer> otherScores = new ArrayList<Integer>();
+        for (int i = 0; i < scoresCopy.size(); i++) {
+            if (i != index) {
+                otherScores.add(scoresCopy.get(i));
+            }
+        }
         return otherScores;
     }
 
     public void updateHand() {
         hand = 0;
         while (wantsToRoll(score, hand, getOtherScores(), passThePig.winningScore)) {
-            hand += Pigs.getHand();
+            int newHand = Pigs.getHand();
+            // System.out.println(newHand);
+
+            if (newHand == 0) {
+                break;
+            }
+
+            hand += newHand;
         }
     }
 
