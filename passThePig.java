@@ -15,6 +15,7 @@ public class passThePig {
         players.add(new UltimateTrevorBot("TBot3", 3));
         players.add(new HumanPlayer("Trevor"));
         players.add(new GambleBot("GambleBot0"));
+        players.add(new SafeBot("SafeBot"));
 
         while (Player.getHighestScore() < winningScore) {
             for (Player player : players) {

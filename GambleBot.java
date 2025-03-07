@@ -1,9 +1,14 @@
 public class GambleBot extends Player{
     private int score;
     private int hand;
+    private String strategy = "Gamble Strategy";
 
     public GambleBot(String name) {
         super(name);
+    }
+
+    public String getStrategy() {
+        return strategy;
     }
 
     public void updateScore() {
@@ -13,6 +18,11 @@ public class GambleBot extends Player{
 
     public void updateHand() {
         hand = 0;
+
+        if (hand != 0) {
+            System.out.println(super.getName() + " decides to keep going.");
+            System.out.println();
+        }
         
         for (int i = 0; i < 10; i++) {
             int newHand = Pigs.getHand();

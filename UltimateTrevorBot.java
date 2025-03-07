@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class UltimateTrevorBot extends Player {
-    private String strategy = "UltimateTrevorStrategy";
+    private String strategy = "Ultimate Trevor Strategy";
     private int score;
     private int hand;
     private int index;
@@ -93,10 +93,6 @@ public class UltimateTrevorBot extends Player {
             System.out.println(super.getName() + " decides to stop");
             System.out.println();
         }
-    }
-
-    public int getScore() {
-        return score;
     }
 
     public String getStrategy() {
