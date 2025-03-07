@@ -6,12 +6,13 @@ public class passThePig {
     public static ArrayList<Player> players = new ArrayList<Player>();
     public static void main (String[]args) {
         System.out.println("Welcome to Pass The Pigs!");
+        System.out.println();
 
         players.add(new UltimateTrevorBot("TBot0", 0));
         players.add(new UltimateTrevorBot("TBot1", 1));
         players.add(new UltimateTrevorBot("TBot2", 2));
         players.add(new UltimateTrevorBot("TBot3", 3));
-        // players.add(new HumanPlayer("Trevor"));
+        players.add(new HumanPlayer("Trevor"));
 
         // for(int i = 0; i < .length; i++){
         //     players.get(i).

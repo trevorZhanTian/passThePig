@@ -14,6 +14,10 @@ public class Player {
         scores.add(0);
     }
 
+    public Player(String name) {
+        this.name = name;
+    }
+
     public void updateHand() {
     }
 
