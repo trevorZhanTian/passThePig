@@ -31,9 +31,9 @@ public class UltimateTrevorBot extends Player {
         
         double expectedScoreConstant = 1 + leadingCompareOffset + leaderWinningDistanceOffset + myWinningDistanceOffset;
 
-        System.out.println("" + leadingCompare + " " + leaderWinningDistance + " " + myWinningDistance);
-        System.out.println("" + leadingCompareOffset + " " + leaderWinningDistanceOffset + " " + myWinningDistanceOffset);
-        System.out.println(defaultExpectedScore * expectedScoreConstant);
+        // System.out.println("" + leadingCompare + " " + leaderWinningDistance + " " + myWinningDistance);
+        // System.out.println("" + leadingCompareOffset + " " + leaderWinningDistanceOffset + " " + myWinningDistanceOffset);
+        // System.out.println(defaultExpectedScore * expectedScoreConstant);
 
         return hand < defaultExpectedScore * expectedScoreConstant;
     }
@@ -57,25 +57,35 @@ public class UltimateTrevorBot extends Player {
     public void updateHand() {
         hand = 0;
         while (wantsToRoll(score, hand, getOtherScores(), passThePig.winningScore)) {
+            if (hand != 0) {
+                System.out.println(super.getName() + " decides to keep going.");
+                System.out.println();
+            }
+            
             int newHand = Pigs.getHand();
             String[] handNames = Pigs.getHandName();
             System.out.println(super.getName() + " gets a " + handNames[0] + " and a " + handNames[1] + ".");
             System.out.println(super.getName() + " gets " + newHand + " points!");
+            hand += newHand;
 
             if (newHand == 0) {
                 hand = 0;
                 break;
             }
 
-            hand += newHand;
+            if (score + hand > 100) {
+                System.out.println(super.getName() + " has " + (score + hand) + " points.");
+                break;
+            }
+
             System.out.println(super.getName() + " can stop with " + (score + hand) + " points.");
-            System.out.println(super.getName() + " decides to keep going.");
-            System.out.println();
         }
 
         if (hand == 0) {
             System.out.println(super.getName() + " pig out!");
             System.out.println();
+        } else if (score + hand > 100) {
+            System.out.println(super.getName() + " wins the game!");
         } else {
             System.out.println(super.getName() + " decides to stop");
             System.out.println();
