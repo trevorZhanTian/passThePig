@@ -18,7 +18,7 @@ public class HumanPlayer extends Player {
         boolean wantsToRoll = true;
         Scanner sc = new Scanner(System.in);
 
-        while(wantsToRoll) {
+        while (wantsToRoll) {
             int newHand = Pigs.getHand();
             String[] handNames = Pigs.getHandName();
             System.out.println(super.getName() + " gets a " + handNames[0] + " and a " + handNames[1] + ".");
@@ -36,7 +36,7 @@ public class HumanPlayer extends Player {
             }
 
             System.out.println(super.getName() + " can stop with " + (score + hand) + " points.");
-            
+
             System.out.print("Continue? (y/n): ");
             String answer = sc.nextLine();
             System.out.println();
@@ -54,6 +54,6 @@ public class HumanPlayer extends Player {
             System.out.println(super.getName() + " decides to stop");
             System.out.println();
         }
-        
+
     }
 }
