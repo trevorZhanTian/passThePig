@@ -1,4 +1,4 @@
-public class GambleBot extends Player{
+public class GambleBot extends Player {
     private int score;
     private int hand;
     private String strategy = "Gamble Strategy";
@@ -23,7 +23,7 @@ public class GambleBot extends Player{
             System.out.println(super.getName() + " decides to keep going.");
             System.out.println();
         }
-        
+
         for (int i = 0; i < 10; i++) {
             int newHand = Pigs.getHand();
             String[] handNames = Pigs.getHandName();

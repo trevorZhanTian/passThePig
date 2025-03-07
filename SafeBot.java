@@ -18,7 +18,7 @@ public class SafeBot extends Player {
 
     public void updateHand() {
         hand = 0;
-        
+
         int newHand = Pigs.getHand();
         String[] handNames = Pigs.getHandName();
         System.out.println(super.getName() + " gets a " + handNames[0] + " and a " + handNames[1] + ".");
